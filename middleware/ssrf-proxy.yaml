@@ -31,8 +31,8 @@ data:
     http_access deny all
     
     ################################## Proxy Server ################################
-    http_port ${HTTP_PORT}
-    coredump_dir ${COREDUMP_DIR}
+    http_port 127.0.0.1
+    coredump_dir 127.0.0.1
     refresh_pattern ^ftp:		1440	20%	10080
     refresh_pattern ^gopher:	1440	0%	1440
     refresh_pattern -i (/cgi-bin/|\?) 0	0%	0
@@ -48,8 +48,8 @@ data:
     # cache_peer 172.1.1.1 parent 3128 0 no-query no-digest no-netdb-exchange default 
     
     ################################## Reverse Proxy To Sandbox ################################
-    http_port ${REVERSE_PROXY_PORT} accel vhost
-    cache_peer ${SANDBOX_HOST} parent ${SANDBOX_PORT} 0 no-query originserver
+    http_port 80 accel vhost
+    cache_peer 127.0.0.1 parent 81 0 no-query originserver
     acl src_all src all
     http_access allow src_all
 
