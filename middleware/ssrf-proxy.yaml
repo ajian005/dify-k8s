@@ -48,7 +48,7 @@ data:
     # cache_peer 172.1.1.1 parent 3128 0 no-query no-digest no-netdb-exchange default 
     
     ################################## Reverse Proxy To Sandbox ################################
-    http_port 80 accel vhost
+    http_port 0.0.0.0:3128 accel vhost
     cache_peer 127.0.0.1 parent 81 0 no-query originserver
     acl src_all src all
     http_access allow src_all
